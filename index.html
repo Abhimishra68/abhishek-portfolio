@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Abhishek Mishra — Flutter &amp; Full-Stack Developer</title>
+<meta name="description" content="Portfolio of Abhishek Mishra — Flutter Developer building production-ready mobile apps with Dart, Firebase, GraphQL and clean scalable architecture." />
+<meta name="author" content="Abhishek Mishra" />
+<meta name="theme-color" content="#05060a" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Abhishek Mishra — Flutter &amp; Full-Stack Developer" />
+<meta property="og:description" content="Hackathon champion. Play Store shipper. I build fast, beautiful, production-ready apps." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://api.github.com" crossorigin />
+<link rel="preconnect" href="https://avatars.githubusercontent.com" crossorigin />
+<link rel="dns-prefetch" href="https://api.github.com" />
+<link rel="preload" as="image" href="https://avatars.githubusercontent.com/u/192303433?v=4" fetchpriority="high" />
+<link rel="preload" as="fetch" href="https://api.github.com/users/Abhimishra68/repos?per_page=100&sort=updated" crossorigin />
+<link rel="preload" as="style" href="assets/css/styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/styles.css" />
+<link rel="modulepreload" href="assets/js/main.js" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ambient layers -->
+<canvas id="constellation" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor-glow" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"><i></i></div>
+
+<!-- ───────────────────────── preloader ───────────────────────── -->
+<div id="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <div class="preloader__mark">AM</div>
+    <div class="preloader__bar"><i></i></div>
+    <div class="preloader__txt">compiling experience…</div>
+  </div>
+</div>
+
+<!-- ───────────────────────── nav ───────────────────────── -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#hero" aria-label="Abhishek Mishra — home">
+    <span class="nav__mark">AM</span>
+    <span class="nav__brandtxt">Abhishek<em>.dev</em></span>
+  </a>
+
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#work">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#wins">Wins</a>
+    <a href="#contact">Contact</a>
+    <i class="nav__ink" aria-hidden="true"></i>
+  </nav>
+
+  <div class="nav__actions">
+    <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle colour theme" title="Toggle theme">
+      <svg viewBox="0 0 24 24" class="i-sun" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><g><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></g></svg>
+      <svg viewBox="0 0 24 24" class="i-moon" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg>
+    </button>
+    <a class="btn btn--ghost nav__cta" href="#contact" data-magnetic>Let's talk</a>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" hidden>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#work">Experience</a>
+  <a href="#projects">Projects</a>
+  <a href="#wins">Wins</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<main id="main">
+
+<!-- ───────────────────────── hero ───────────────────────── -->
+<section class="hero" id="hero">
+  <div class="hero__grid" aria-hidden="true"></div>
+
+  <div class="hero__inner">
+    <p class="hero__eyebrow reveal">
+      <span class="dot"></span> Available for opportunities · Mohali, Punjab
+    </p>
+
+    <h1 class="hero__title">
+      <span class="line"><span data-split>Abhishek</span></span>
+      <span class="line"><span data-split class="grad">Mishra</span></span>
+    </h1>
+
+    <p class="hero__role reveal" data-delay="120">
+      <span class="mono">&gt;</span>
+      <span id="typewriter" class="mono"></span><span class="caret" aria-hidden="true"></span>
+    </p>
+
+    <p class="hero__lede reveal" data-delay="200">
+      I build <strong>production-ready</strong> mobile and web products — Flutter on the front,
+      Firebase &amp; GraphQL underneath, obsessive attention to motion and detail on top.
+      Currently shipping at <strong>Ooumph</strong>.
+    </p>
+
+    <div class="hero__cta reveal" data-delay="280">
+      <a class="btn btn--primary" href="#projects" data-magnetic>
+        View my work
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn--ghost" href="mailto:abhishekmishra08195@gmail.com" data-magnetic>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+        Hire me
+      </a>
+    </div>
+
+    <ul class="hero__social reveal" data-delay="360">
+      <li><a href="https://github.com/Abhimishra68" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .83-.27 2.73 1.02a9.4 9.4 0 0 1 4.98 0c1.9-1.29 2.73-1.02 2.73-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.35 4.68-4.58 4.93.36.31.68.92.68 1.86v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+      </a></li>
+      <li><a href="https://www.linkedin.com/in/abhishek-mishra-48a8bb2a7/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05A4.2 4.2 0 0 1 17.6 8.7c3 0 3.9 1.85 3.9 5.05V21h-4v-6.1c0-1.5-.55-2.5-1.9-2.5-1.05 0-1.7.7-1.95 1.4-.1.25-.15.6-.15.95V21h-3.5V9Z"/></svg>
+      </a></li>
+      <li><a href="mailto:abhishekmishra08195@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+      </a></li>
+      <li><a href="tel:+916299350067" aria-label="Phone">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h3l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4 5.2A2 2 0 0 1 6 3Z"/></svg>
+      </a></li>
+    </ul>
+  </div>
+
+  <div class="hero__card reveal" data-delay="200">
+    <span class="float-chip float-chip--1" aria-hidden="true">Dart</span>
+    <span class="float-chip float-chip--2" aria-hidden="true">Firebase</span>
+    <span class="float-chip float-chip--3" aria-hidden="true">GraphQL</span>
+
+    <div class="tilt" data-tilt>
+      <div class="code-card" id="codeCard">
+        <div class="code-card__bar">
+          <i></i><i></i><i></i>
+          <span class="code-card__file mono">main.dart</span>
+          <button class="code-card__replay" id="codeReplay" type="button" aria-label="Replay the typing animation" title="Replay">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.6"/><path d="M20 4v7h-7"/></svg>
+          </button>
+        </div>
+
+        <div class="code-card__scan" aria-hidden="true"></div>
+
+        <div class="code-card__wrap">
+          <div class="code-card__gutter mono" id="codeGutter" aria-hidden="true"></div>
+<pre class="code-card__body mono"><code id="codeSource"><span class="c-k">class</span> <span class="c-t">Abhishek</span> <span class="c-k">extends</span> <span class="c-t">Developer</span> {
+  <span class="c-k">final</span> role = <span class="c-s">'Flutter Engineer'</span>;
+  <span class="c-k">final</span> stack = [<span class="c-s">'Flutter'</span>, <span class="c-s">'Dart'</span>, <span class="c-s">'Firebase'</span>];
+  <span class="c-k">final</span> hackathons = <span class="c-n">15</span>; <span class="c-c">// finalist</span>
+
+  <span class="c-nn">@override</span>
+  <span class="c-t">Widget</span> build(<span class="c-t">Context</span> ctx) =&gt; <span class="c-t">Impact</span>(
+    scalable: <span class="c-n">true</span>,
+    pixelPerfect: <span class="c-n">true</span>,
+    child: <span class="c-t">ShipIt</span>(),
+  );
+}</code></pre>
+        </div>
+
+        <div class="code-card__status mono">
+          <span class="code-card__dot" aria-hidden="true"></span>
+          <span id="buildText" aria-live="polite">waiting…</span>
+          <span class="code-card__ms" id="buildMs"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="hero__scroll" href="#about" aria-label="Scroll to about">
+    <span class="mono">scroll</span><i></i>
+  </a>
+</section>
+
+<!-- ───────────────────────── marquee ───────────────────────── -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Flutter</span><b>✦</b><span>Dart</span><b>✦</b><span>Firebase</span><b>✦</b><span>GraphQL</span><b>✦</b><span>React</span><b>✦</b><span>Node.js</span><b>✦</b><span>MongoDB</span><b>✦</b><span>REST APIs</span><b>✦</b><span>Figma</span><b>✦</b>
+    <span>Flutter</span><b>✦</b><span>Dart</span><b>✦</b><span>Firebase</span><b>✦</b><span>GraphQL</span><b>✦</b><span>React</span><b>✦</b><span>Node.js</span><b>✦</b><span>MongoDB</span><b>✦</b><span>REST APIs</span><b>✦</b><span>Figma</span><b>✦</b>
+  </div>
+</div>
+
+<!-- ───────────────────────── about ───────────────────────── -->
+<section class="section" id="about">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <span class="sec-num mono">01</span>
+      <h2 class="sec-title">About <span class="grad">me</span></h2>
+    </header>
+
+    <div class="about">
+      <div class="about__text reveal">
+        <p class="lead">
+          Results-driven <strong>Flutter Developer</strong> with real production experience —
+          from architecting responsive UI systems to wiring up GraphQL and Firebase backends.
+        </p>
+        <p>
+          I'm a Computer Science undergrad at <strong>Chandigarh University</strong> who learned
+          engineering by shipping: apps live on the Play Store, websites serving real users, and
+          a hackathon habit that turned into a win at Punjab University plus finalist spots in
+          <strong>15+ national hackathons</strong>.
+        </p>
+        <p>
+          What I care about: clean code, scalable architecture, and interfaces that feel
+          effortless. What I'm looking for: an ambitious team (and open-source work) where
+          craft actually matters.
+        </p>
+
+        <div class="about__chips">
+          <span class="chip">🎯 Clean architecture</span>
+          <span class="chip">🚀 Ship-fast mindset</span>
+          <span class="chip">🎨 Motion &amp; micro-interactions</span>
+          <span class="chip">🌱 Open source</span>
+        </div>
+      </div>
+
+      <aside class="about__side">
+        <div class="stat-grid">
+          <div class="stat glass reveal" data-delay="60">
+            <b class="counter" data-to="15" data-suffix="+">0</b>
+            <span>National hackathons</span>
+          </div>
+          <div class="stat glass reveal" data-delay="120">
+            <b class="counter" data-to="10" data-suffix="+">0</b>
+            <span>Apps &amp; products built</span>
+          </div>
+          <div class="stat glass reveal" data-delay="180">
+            <b class="counter" data-to="7" data-decimals="1" data-to-raw="7.3">0</b>
+            <span>CGPA · CSE</span>
+          </div>
+          <div class="stat glass reveal" data-delay="240">
+            <b class="counter" data-to="6" data-suffix="+">0</b>
+            <span>Languages I write</span>
+          </div>
+        </div>
+
+        <div class="edu glass reveal" data-delay="300">
+          <h3>Education</h3>
+          <ul>
+            <li><b>B.E. Computer Science &amp; Engineering</b><em>Chandigarh University · 2022–Present · CGPA 7.3</em></li>
+            <li><b>Higher Secondary (XII), Science</b><em>S.P. Jain College, B.S.E.B · 2018–2020 · 73%</em></li>
+            <li><b>Secondary School (X)</b><em>D.A.V. Public School · 2017–2018 · 71%</em></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── skills ───────────────────────── -->
+<section class="section" id="skills">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <span class="sec-num mono">02</span>
+      <h2 class="sec-title">The <span class="grad">toolkit</span></h2>
+      <p class="sec-sub">Things I reach for when there's a problem to solve.</p>
+    </header>
+
+    <div class="skills">
+      <article class="skill-card glass reveal" data-tilt>
+        <div class="skill-card__icon">📱</div>
+        <h3>Mobile</h3>
+        <p>Flutter apps with responsive, scalable UI architecture — shipped to the Play Store.</p>
+        <ul class="tags"><li>Flutter</li><li>Dart</li><li>Firebase</li><li>UI/UX Architecture</li><li>Android Studio</li></ul>
+        <div class="meter" data-level="92"><i></i></div>
+      </article>
+
+      <article class="skill-card glass reveal" data-delay="80" data-tilt>
+        <div class="skill-card__icon">🌐</div>
+        <h3>Web</h3>
+        <p>Interactive front-ends in React, hand-tuned CSS, and pixel-accurate design systems.</p>
+        <ul class="tags"><li>React</li><li>JavaScript</li><li>HTML5</li><li>CSS3</li><li>Tailwind</li></ul>
+        <div class="meter" data-level="85"><i></i></div>
+      </article>
+
+      <article class="skill-card glass reveal" data-delay="160" data-tilt>
+        <div class="skill-card__icon">🗄️</div>
+        <h3>Backend &amp; Data</h3>
+        <p>APIs, auth and data modelling — REST and GraphQL, SQL and NoSQL.</p>
+        <ul class="tags"><li>Node.js</li><li>Firestore</li><li>GraphQL</li><li>MongoDB</li><li>MySQL</li></ul>
+        <div class="meter" data-level="80"><i></i></div>
+      </article>
+
+      <article class="skill-card glass reveal" data-delay="240" data-tilt>
+        <div class="skill-card__icon">⚙️</div>
+        <h3>Languages &amp; Tools</h3>
+        <p>Comfortable across paradigms, disciplined with version control and debugging.</p>
+        <ul class="tags"><li>Python</li><li>Java</li><li>C / C++</li><li>Git &amp; GitLab</li><li>Postman</li><li>Figma</li></ul>
+        <div class="meter" data-level="88"><i></i></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── experience ───────────────────────── -->
+<section class="section" id="work">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <span class="sec-num mono">03</span>
+      <h2 class="sec-title">Where I've <span class="grad">shipped</span></h2>
+    </header>
+
+    <ol class="timeline">
+      <li class="tl reveal">
+        <div class="tl__dot" aria-hidden="true"></div>
+        <div class="tl__card glass">
+          <div class="tl__top">
+            <h3>Flutter Developer Intern</h3>
+            <span class="tl__when mono">Feb 2026 — Present</span>
+          </div>
+          <p class="tl__org">Ooumph <span class="badge badge--live">Current</span></p>
+          <ul>
+            <li>Building production-ready Flutter applications with responsive, scalable UI architecture.</li>
+            <li>Integrating GraphQL APIs, debugging edge cases and optimising app performance.</li>
+            <li>Collaborating through Git/GitLab workflows with clean-code review practices.</li>
+          </ul>
+          <ul class="tags"><li>Flutter</li><li>Dart</li><li>GraphQL</li><li>GitLab</li><li>Performance</li></ul>
+        </div>
+      </li>
+
+      <li class="tl reveal" data-delay="100">
+        <div class="tl__dot" aria-hidden="true"></div>
+        <div class="tl__card glass">
+          <div class="tl__top">
+            <h3>Freelance / Independent Developer</h3>
+            <span class="tl__when mono">2023 — Present</span>
+          </div>
+          <p class="tl__org">Self-directed products</p>
+          <ul>
+            <li>Published <strong>Oplite Connect</strong> and other production-level apps to the Play Store.</li>
+            <li>Built <strong>Texcure</strong>, an ITR filing platform, end to end.</li>
+            <li>Owned everything: design, architecture, delivery, iteration.</li>
+          </ul>
+          <ul class="tags"><li>Flutter</li><li>Firebase</li><li>React</li><li>Node.js</li></ul>
+        </div>
+      </li>
+
+      <li class="tl reveal" data-delay="200">
+        <div class="tl__dot" aria-hidden="true"></div>
+        <div class="tl__card glass">
+          <div class="tl__top">
+            <h3>B.E. Computer Science &amp; Engineering</h3>
+            <span class="tl__when mono">2022 — Present</span>
+          </div>
+          <p class="tl__org">Chandigarh University · CGPA 7.3</p>
+          <ul>
+            <li>Core CS foundations: DSA, operating systems, DBMS, computer networks.</li>
+            <li>Hackathon circuit regular — 15+ national events, one championship title.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ───────────────────────── projects ───────────────────────── -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <span class="sec-num mono">04</span>
+      <h2 class="sec-title">Selected <span class="grad">work</span></h2>
+      <p class="sec-sub">Real builds, real users, real constraints.</p>
+    </header>
+
+    <div class="filters reveal" role="tablist" aria-label="Filter projects">
+      <button class="filter is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="filter" data-filter="mobile" role="tab" aria-selected="false">Mobile</button>
+      <button class="filter" data-filter="web" role="tab" aria-selected="false">Web</button>
+      <button class="filter" data-filter="ai" role="tab" aria-selected="false">AI</button>
+    </div>
+
+    <div class="projects" id="projectGrid">
+
+      <article class="pcard glass reveal" data-cat="mobile" data-tilt>
+        <div class="pcard__glow" aria-hidden="true"></div>
+        <div class="pcard__head">
+          <div class="pcard__ico">🔐</div>
+          <span class="pcard__kind mono">Mobile · Security</span>
+        </div>
+        <h3>QR-Based Product Authentication</h3>
+        <p>
+          Flutter app that scans dynamic, encrypted QR codes to verify product authenticity in
+          real time against a cloud backend — built to kill counterfeits.
+        </p>
+        <ul class="pcard__points">
+          <li>QR expiry logic + timestamp tracking</li>
+          <li>Duplicate-scan detection flags fakes</li>
+          <li>Animated cross-platform status UI</li>
+        </ul>
+        <ul class="tags"><li>Flutter</li><li>Dart</li><li>Firebase</li><li>Node.js</li><li>Firestore</li></ul>
+      </article>
+
+      <article class="pcard glass reveal" data-delay="80" data-cat="ai web" data-tilt>
+        <div class="pcard__glow" aria-hidden="true"></div>
+        <div class="pcard__head">
+          <div class="pcard__ico">🤖</div>
+          <span class="pcard__kind mono">AI · Web</span>
+        </div>
+        <h3>GenerativeUI — AI Component Generator</h3>
+        <p>
+          Type a prompt, get a fully responsive HTML/CSS/JS component. React tool powered by the
+          Google GenAI API with live preview and a real editor.
+        </p>
+        <ul class="pcard__points">
+          <li>Code extraction + syntax highlighting</li>
+          <li>Tabbed editor/preview, fullscreen mode</li>
+          <li>One-click copy &amp; download</li>
+        </ul>
+        <ul class="tags"><li>React</li><li>Tailwind</li><li>Google GenAI</li><li>Monaco Editor</li></ul>
+      </article>
+
+      <article class="pcard glass reveal" data-delay="160" data-cat="mobile" data-tilt>
+        <div class="pcard__glow" aria-hidden="true"></div>
+        <div class="pcard__head">
+          <div class="pcard__ico">🗂️</div>
+          <span class="pcard__kind mono">Mobile · Privacy</span>
+        </div>
+        <h3>My Vault — Secure Notes &amp; Media</h3>
+        <p>
+          A premium personal vault for notes, images, videos, documents and contacts — local SQL
+          storage wrapped in a genuinely nice interface.
+        </p>
+        <ul class="pcard__points">
+          <li>Animated transitions &amp; gradient theming</li>
+          <li>Staggered grid, icon-driven layout</li>
+          <li>Lottie polish throughout</li>
+        </ul>
+        <ul class="tags"><li>Flutter</li><li>SQL</li><li>Lottie</li><li>Google Fonts</li></ul>
+      </article>
+
+      <article class="pcard glass reveal" data-delay="60" data-cat="mobile" data-tilt>
+        <div class="pcard__glow" aria-hidden="true"></div>
+        <div class="pcard__head">
+          <div class="pcard__ico">📲</div>
+          <span class="pcard__kind mono">Mobile · Live</span>
+        </div>
+        <h3>Oplite Connect <span class="badge badge--live">Play Store</span></h3>
+        <p>
+          A published production app on the Google Play Store — real install base, real crash
+          reports, real lessons in shipping and maintaining software.
+        </p>
+        <ul class="pcard__points">
+          <li>Release pipeline &amp; store compliance</li>
+          <li>Firebase auth + cloud data sync</li>
+          <li>Iterated on real user feedback</li>
+        </ul>
+        <ul class="tags"><li>Flutter</li><li>Firebase</li><li>REST APIs</li></ul>
+      </article>
+
+      <article class="pcard glass reveal" data-delay="140" data-cat="web" data-tilt>
+        <div class="pcard__glow" aria-hidden="true"></div>
+        <div class="pcard__head">
+          <div class="pcard__ico">🧾</div>
+          <span class="pcard__kind mono">Web · FinTech</span>
+        </div>
+        <h3>Texcure — ITR Filing Platform</h3>
+        <p>
+          A web platform that walks users through income-tax return filing: guided multi-step
+          flows, document handling, and a UI that makes tax feel survivable.
+        </p>
+        <ul class="pcard__points">
+          <li>Multi-step form architecture</li>
+          <li>Document upload &amp; validation</li>
+          <li>Responsive, conversion-focused design</li>
+        </ul>
+        <ul class="tags"><li>React</li><li>JavaScript</li><li>CSS</li><li>REST APIs</li></ul>
+      </article>
+
+      <article class="pcard glass pcard--cta reveal" data-delay="220" data-cat="all">
+        <div class="pcard__glow" aria-hidden="true"></div>
+        <h3>31 public repositories</h3>
+        <p>Production builds, UI experiments, React studies, Flutter dashboards and hackathon work — all in one place.</p>
+        <a class="btn btn--primary" href="#githubShowcase" data-magnetic>
+          Explore the code
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+        </a>
+      </article>
+
+    </div>
+
+    <!-- Live GitHub profile — public API only; no token is required or exposed. -->
+    <div class="github-showcase" id="githubShowcase">
+      <div class="github-profile glass reveal">
+        <div class="github-profile__halo" aria-hidden="true"></div>
+        <div class="github-profile__identity">
+          <a class="github-avatar" href="https://github.com/Abhimishra68" target="_blank" rel="noopener noreferrer" aria-label="Open Abhishek Mishra's GitHub profile">
+            <img src="https://avatars.githubusercontent.com/u/192303433?v=4" alt="Professional portrait of Abhishek Mishra" width="240" height="240" loading="lazy" />
+            <span class="github-avatar__status" aria-hidden="true"></span>
+          </a>
+          <div>
+            <span class="github-profile__kicker mono"><i></i> LIVE GITHUB PROFILE</span>
+            <h3>Abhishek Mishra</h3>
+            <a class="github-handle mono" href="https://github.com/Abhimishra68" target="_blank" rel="noopener noreferrer">@Abhimishra68 ↗</a>
+            <p>Flutter engineer building mobile products, rich dashboards, AI interfaces and practical full-stack experiments.</p>
+          </div>
+        </div>
+
+        <div class="github-profile__stats" aria-label="GitHub profile statistics">
+          <div><b id="ghRepoCount">31</b><span>Public repos</span></div>
+          <div><b id="ghLanguageCount">8+</b><span>Languages</span></div>
+          <div><b id="ghStarCount">0</b><span>Stars earned</span></div>
+          <div><b id="ghUpdated">Live</b><span>API status</span></div>
+        </div>
+
+        <div class="github-languages" id="ghLanguages" aria-label="Top GitHub languages">
+          <div class="github-languages__loading"><i></i><i></i><i></i><i></i></div>
+        </div>
+      </div>
+
+      <div class="repo-browser reveal" data-delay="100">
+        <div class="repo-browser__head">
+          <div>
+            <span class="sec-num mono">OPEN SOURCE &amp; EXPERIMENTS</span>
+            <h3>Inside the <span class="grad">repository</span></h3>
+          </div>
+          <a class="repo-browser__all mono" href="https://github.com/Abhimishra68?tab=repositories" target="_blank" rel="noopener noreferrer">View all on GitHub ↗</a>
+        </div>
+
+        <div class="repo-tools glass">
+          <label class="repo-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg>
+            <span class="sr-only">Search repositories</span>
+            <input id="repoSearch" type="search" placeholder="Search 31 repositories…" autocomplete="off" />
+          </label>
+          <label class="repo-select">
+            <span class="sr-only">Filter by language</span>
+            <select id="repoLanguage"><option value="all">All languages</option></select>
+          </label>
+          <label class="repo-select">
+            <span class="sr-only">Sort repositories</span>
+            <select id="repoSort">
+              <option value="updated">Recently updated</option>
+              <option value="name">Name A–Z</option>
+              <option value="stars">Most starred</option>
+            </select>
+          </label>
+        </div>
+
+        <p class="repo-result mono" id="repoResult" aria-live="polite">Connecting to GitHub…</p>
+        <div class="repo-grid" id="repoGrid" aria-busy="true">
+          <div class="repo-skeleton glass"></div><div class="repo-skeleton glass"></div><div class="repo-skeleton glass"></div>
+        </div>
+        <button class="btn btn--ghost repo-more" id="repoMore" type="button" hidden>Show all repositories</button>
+        <noscript><p class="repo-noscript">JavaScript is disabled. Browse all projects directly on <a href="https://github.com/Abhimishra68">GitHub</a>.</p></noscript>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── wins ───────────────────────── -->
+<section class="section" id="wins">
+  <div class="wrap">
+    <header class="sec-head reveal">
+      <span class="sec-num mono">05</span>
+      <h2 class="sec-title">Wins &amp; <span class="grad">recognition</span></h2>
+    </header>
+
+    <div class="wins">
+      <article class="win glass reveal" data-tilt>
+        <div class="win__medal">🏆</div>
+        <h3>Hackathon Champion</h3>
+        <p>Winner at the <strong>Punjab University Hackathon</strong>, and finalist in <strong>15+ national hackathons</strong> — building shippable products under 24–36 hour clocks.</p>
+      </article>
+      <article class="win glass reveal" data-delay="90" data-tilt>
+        <div class="win__medal">🚀</div>
+        <h3>Play Store Publisher</h3>
+        <p><strong>Oplite Connect</strong> and other production-level apps live on Google Play — from signing keys to store listings to post-launch fixes.</p>
+      </article>
+      <article class="win glass reveal" data-delay="180" data-tilt>
+        <div class="win__medal">💡</div>
+        <h3>High-Impact Web Builds</h3>
+        <p>Delivered <strong>Texcure (ITR Filing Platform)</strong> and other client-facing websites that solve genuine, boring, valuable problems.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── contact ───────────────────────── -->
+<section class="section section--contact" id="contact">
+  <div class="wrap">
+    <div class="contact glass reveal">
+      <div class="contact__glow" aria-hidden="true"></div>
+
+      <span class="sec-num mono">06</span>
+      <h2 class="contact__title">Let's build something<br /><span class="grad">worth shipping.</span></h2>
+      <p class="contact__sub">
+        Open to internships, full-time roles, freelance builds and open-source collaboration.
+        I reply fast.
+      </p>
+
+      <div class="contact__actions">
+        <a class="btn btn--primary btn--lg" href="mailto:abhishekmishra08195@gmail.com?subject=Let%27s%20work%20together" data-magnetic>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>
+          abhishekmishra08195@gmail.com
+        </a>
+        <a class="btn btn--ghost btn--lg" href="tel:+916299350067" data-magnetic>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h3l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4 5.2A2 2 0 0 1 6 3Z"/></svg>
+          +91 62993 50067
+        </a>
+      </div>
+
+      <ul class="contact__links">
+        <li><a href="https://github.com/Abhimishra68" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+        <li><a href="https://www.linkedin.com/in/abhishek-mishra-48a8bb2a7/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
+        <li><a href="https://v0-resume-portfolio-website-orpin.vercel.app/" target="_blank" rel="noopener noreferrer">Resume site ↗</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p>© <span id="year">2026</span> Abhishek Mishra · Mohali, Punjab</p>
+    <p class="mono footer__note">Built from scratch — no frameworks, just intent.</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
