@@ -1712,3 +1712,51 @@ html[data-theme="light"] .filter.is-active { color: #fff; }
   .repo-select select { width: 100%; }
   .repo-grid { grid-template-columns: 1fr; }
 }
+
+
+/* ============================================================
+   hero portrait — floating pill above the code card
+   ============================================================ */
+.hero__portrait {
+  position: absolute;
+  z-index: 7;
+  top: -34px;
+  left: -32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 20px 8px 8px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg-2) 82%, transparent);
+  border: 1px solid var(--line-str);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow);
+  animation: floaty 7.5s ease-in-out infinite;
+  animation-delay: -1.5s;
+}
+.hero__portrait img {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 22%;
+  background: var(--bg-2);
+  border: 2px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-2), var(--bg-2)),
+    var(--grad);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+.hero__portrait figcaption {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  color: var(--txt-2);
+}
+@media (max-width: 1000px) {
+  .hero__portrait { top: -22px; left: 10px; }
+}
+@media (max-width: 620px) {
+  .hero__portrait { padding: 6px 16px 6px 6px; }
+  .hero__portrait img { width: 46px; height: 46px; }
+  .hero__portrait figcaption { font-size: 0.62rem; }
+}

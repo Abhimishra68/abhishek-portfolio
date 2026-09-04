@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://api.github.com" crossorigin />
 <link rel="preconnect" href="https://avatars.githubusercontent.com" crossorigin />
 <link rel="dns-prefetch" href="https://api.github.com" />
-<link rel="preload" as="image" href="https://avatars.githubusercontent.com/u/192303433?v=4" fetchpriority="high" />
+<link rel="preload" as="image" href="assets/img/profile.jpg" fetchpriority="high" />
 <link rel="preload" as="fetch" href="https://api.github.com/users/Abhimishra68/repos?per_page=100&sort=updated" crossorigin />
 <link rel="preload" as="style" href="assets/css/styles.css" />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
@@ -138,6 +138,15 @@
     <span class="float-chip float-chip--1" aria-hidden="true">Dart</span>
     <span class="float-chip float-chip--2" aria-hidden="true">Firebase</span>
     <span class="float-chip float-chip--3" aria-hidden="true">GraphQL</span>
+
+    <figure class="hero__portrait" aria-hidden="true">
+      <img src="assets/img/profile.jpg"
+           alt=""
+           width="120" height="120"
+           decoding="async"
+           onerror="this.onerror=null;this.src='https://avatars.githubusercontent.com/u/192303433?v=4';" />
+      <figcaption class="mono">that's me</figcaption>
+    </figure>
 
     <div class="tilt" data-tilt>
       <div class="code-card" id="codeCard">
@@ -493,7 +502,13 @@
         <div class="github-profile__halo" aria-hidden="true"></div>
         <div class="github-profile__identity">
           <a class="github-avatar" href="https://github.com/Abhimishra68" target="_blank" rel="noopener noreferrer" aria-label="Open Abhishek Mishra's GitHub profile">
-            <img src="https://avatars.githubusercontent.com/u/192303433?v=4" alt="Professional portrait of Abhishek Mishra" width="240" height="240" loading="lazy" />
+            <img id="profilePhoto"
+                 src="assets/img/profile.jpg"
+                 srcset="assets/img/profile.jpg 1x, assets/img/profile@2x.jpg 2x"
+                 alt="Professional portrait of Abhishek Mishra"
+                 width="240" height="240"
+                 fetchpriority="high" decoding="async"
+                 onerror="this.onerror=null;this.removeAttribute('srcset');this.src='https://avatars.githubusercontent.com/u/192303433?v=4';" />
             <span class="github-avatar__status" aria-hidden="true"></span>
           </a>
           <div>
